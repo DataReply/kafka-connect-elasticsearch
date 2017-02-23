@@ -8,7 +8,7 @@ build_source:
     - export http_proxy=$proxy
     - export https_proxy=$ssl_proxy
     - sudo apt-get update
-    - sudo apt-get install -y qq maven
+    - sudo apt-get install -y -qq maven
     - mkdir -p /root/.m2 && echo """<settings><proxies><proxy><id>http-proxy</id><active>true</active><protocol>http</protocol><host>$proxy_url</host><port>$proxy_port</port></proxy><proxy><id>https-proxy</id><active>true</active><protocol>https</protocol><host>$proxy_url</host><port>$proxy_port</port></proxy></proxies></settings>""" >> /root/.m2/settings.xml
   stage: build
   script:
