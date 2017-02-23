@@ -13,7 +13,7 @@ build_source:
   stage: build
   script:
     - cd $CI_PROJECT_DIR
-    - mvn clean package
+    - mvn clean package -DskipTests=true
   artifacts:
     paths:
       - "$CI_PROJECT_DIR/target/kafka-connect-elasticsearch-3.2.0-SNAPSHOT-package"
