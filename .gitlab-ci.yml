@@ -16,10 +16,10 @@ build_source:
     - mvn clean package -DskipTests=true
   artifacts:
     paths:
-      - "$CI_PROJECT_DIR/target/kafka-connect-elasticsearch-3.2.0-SNAPSHOT-package/share/java/kafka-connect-elasticsearch/*.jar"
+      - "$CI_PROJECT_DIR/target/kafka-connect-elasticsearch-3.2.0-SNAPSHOT-package/share/java/kafka-connect-elasticsearch"
 
 move_artifacts:
   only: ["0.10.0.0"]
   stage: deploy
   script:
-    - cp $CI_PROJECT_DIR/target/kafka-connect-elasticsearch-3.2.0-SNAPSHOT-package/share/java/kafka-connect-elasticsearch/*.jar /mnt/container-volumes/connect/
+    - cp -R $CI_PROJECT_DIR/target/kafka-connect-elasticsearch-3.2.0-SNAPSHOT-package/share/java/kafka-connect-elasticsearch /mnt/container-volumes/connect/
